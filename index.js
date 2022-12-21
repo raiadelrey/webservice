@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const PORTA = 8888;
+const PORTA = 8880;
 
 let livros = [];
 
@@ -27,7 +27,7 @@ app.post('/book', function (req, res) {
     console.log(livro);
     livros.push(livro);
 
-    res.send(`Livro inserido com sucesso`);
+    res.send(`***** Livro inserido com sucesso *****`);
 
   });
 
@@ -48,11 +48,11 @@ app.post('/book', function (req, res) {
         res.status(200).send(livros[id-1]);
     } 
     else {
-        res.status(404).send("Livro não encontrado");
+        res.status(404).send("***** Livro não encontrado ***** Tente novamente!");
     }
   });
 
-  app.get('/book/ver_todos', (req, res) =>{
+  app.get('/book/VerTudo', (req, res) =>{
     res.status(200).send(livros);
   })
 
@@ -69,7 +69,7 @@ app.post('/book', function (req, res) {
     }
   });
 
-  app.delete('/book/remover/:id', (req, res)=>{
+  app.delete('/book/delete/:id', (req, res)=>{
     let id = req.params.id;
 
     if (id > 0 && id <= livros.length){
