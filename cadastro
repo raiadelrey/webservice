@@ -1,0 +1,53 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const app = express();
+
+app.use(cors());
+
+app.use(bodyParser.urlencoded({extend:false}));
+app.use(bodyParser.json());
+
+const PORTA = 8080;
+
+const pessoas = [];
+    
+    
+    //servidor.on ("request" ,(request, response) => { 
+           // response.end("Testando servidor - CURSO BACKEND SOFTEX")});
+            
+           app.get("/pessoa", (req,res) => {
+            // implementação de excução de busca
+            console.log("Cadastro",pessoas)
+        })
+        
+        app.get("/pessoa/:id",(req, res) =>{
+            //implementação de execução de busca de apenas um item
+            console.log("Busca específica por id")
+        })
+        app.post("/pessoa" ,(req, res) => {
+            //implementação de execução de cadastro 
+            console.log("Cadastro feito com sucesso!");
+        })
+
+        app.delete("/pessoa/update/:id" ,(req, res) => {
+          //implementação de execução de cadastro 
+          console.log("Cadastro atualizado com sucesso!");
+      })
+
+        app.delete("/pessoa/delete/:id" ,(req, res) => {
+          //implementação de execução de cadastro 
+          console.log("Deletado com sucesso!");
+      })
+
+
+
+        app.listen (PORTA, () => {
+            console.log(`servidor iniciado na porta ${PORTA}`)
+
+            
+        }
+        );
+
+      
+
