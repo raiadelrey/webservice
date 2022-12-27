@@ -1,14 +1,16 @@
+const http = require ("http");
+    const PORTA = process.port || 8080;
+    const servidor = http.createServer();
+    
+    servidor.on ("request" ,(request, response) => { 
+            response.end("Testando servidor")});
+            
+
 const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+
 const app = express();
 
-app.use(cors());
 
-app.use(bodyParser.urlencoded({extend:false}));
-app.use(bodyParser.json());
-
-const PORTA = 8080;
 
 const pessoas = [];
     
@@ -50,4 +52,5 @@ const pessoas = [];
         );
 
       
+
 
